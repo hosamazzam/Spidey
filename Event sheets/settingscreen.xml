@@ -1,0 +1,65 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<c2eventsheet>
+    <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
+    <name>settingscreen</name>
+    <events>
+        <variable constant="0" name="effects" sid="8812007811353157" static="0" type="number">0</variable>
+        <variable comment="music sound" constant="0" name="sound" sid="4100840352977372" static="0" type="number">1</variable>
+        <event-block sid="9443542584257434">
+            <conditions>
+                <condition id="3" name="On touched object" sid="6861116100603514" type="Touch">
+                    <param id="0" name="Object">sound</param>
+                </condition>
+            </conditions>
+            <actions />
+            <sub-events>
+                <event-block sid="7039018449722216">
+                    <conditions>
+                        <condition id="-14" name="Compare variable" sid="6710638473839942" type="System">
+                            <param id="0" name="Variable">sound</param>
+                            <param id="1" name="Comparison">2</param>
+                            <param id="2" name="Value">1</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="5" name="Set frame" sid="2038726326266161" type="sound">
+                            <param id="0" name="Frame number">1</param>
+                        </action>
+                        <action id="-9" name="Set value" sid="512766986259553" type="System">
+                            <param id="0" name="Variable">sound</param>
+                            <param id="1" name="Value">1</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-block>
+        <event-block sid="51820370334576">
+            <conditions>
+                <condition id="3" name="On touched object" sid="2786731506413714" type="Touch">
+                    <param id="0" name="Object">sound</param>
+                </condition>
+            </conditions>
+            <actions />
+            <sub-events>
+                <event-block sid="1197905661058701">
+                    <conditions>
+                        <condition id="-14" name="Compare variable" sid="8755630532386766" type="System">
+                            <param id="0" name="Variable">sound</param>
+                            <param id="1" name="Comparison">4</param>
+                            <param id="2" name="Value">0</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="5" name="Set frame" sid="9688169596381998" type="sound">
+                            <param id="0" name="Frame number">0</param>
+                        </action>
+                        <action id="-9" name="Set value" sid="5197512051600956" type="System">
+                            <param id="0" name="Variable">sound</param>
+                            <param id="1" name="Value">0</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-block>
+    </events>
+</c2eventsheet>

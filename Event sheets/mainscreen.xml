@@ -1,0 +1,72 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<c2eventsheet>
+    <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
+    <name>mainscreen</name>
+    <events>
+        <event-block sid="5308342488089274">
+            <conditions>
+                <condition id="3" name="On touched object" sid="6278725278097521" type="Touch">
+                    <param id="0" name="Object">Play_button</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="3" name="Start" sid="1239814247600952" type="Play_button">
+                    <param id="0" name="From">1</param>
+                </action>
+                <action id="-16" name="Wait" sid="6866061702631595" type="System">
+                    <param id="0" name="Seconds">0.1</param>
+                </action>
+                <action id="-2" name="Go to layout" sid="4870297209119676" type="System">
+                    <param id="0" name="Layout">playing</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="3034724508566692">
+            <conditions>
+                <condition id="3" name="On touched object" sid="1930562492821079" type="Touch">
+                    <param id="0" name="Object">Setting</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="3" name="Start" sid="9627489641112873" type="Setting">
+                    <param id="0" name="From">1</param>
+                </action>
+                <action id="-16" name="Wait" sid="9251054753491905" type="System">
+                    <param id="0" name="Seconds">0.1</param>
+                </action>
+                <action id="-2" name="Go to layout" sid="7465760587831819" type="System">
+                    <param id="0" name="Layout">setting</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="5747195238000036">
+            <conditions>
+                <condition id="3" name="On touched object" sid="5666144755566109" type="Touch">
+                    <param id="0" name="Object">Quit</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="3" name="Start" sid="6983816877231879" type="Quit">
+                    <param id="0" name="From">1</param>
+                </action>
+                <action id="-16" name="Wait" sid="1902397462507478" type="System">
+                    <param id="0" name="Seconds">0.1</param>
+                </action>
+                <action id="1" name="Close" sid="1114972251384907" type="Browser" />
+            </actions>
+        </event-block>
+        <event-block sid="2013840472578117">
+            <conditions>
+                <condition id="-2" name="On start of layout" sid="2757721770451959" type="System" />
+            </conditions>
+            <actions>
+                <action id="0" name="Play" sid="7394695150367242" type="Audio">
+                    <param id="0" name="Audio file">main</param>
+                    <param id="2" name="Loop">1</param>
+                    <param id="3" name="Volume">0</param>
+                    <param id="1" name="Tag (optional)">&quot;&quot;</param>
+                </action>
+            </actions>
+        </event-block>
+    </events>
+</c2eventsheet>

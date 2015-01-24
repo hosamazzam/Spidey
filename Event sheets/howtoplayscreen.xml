@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<c2eventsheet>
+    <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
+    <name>howtoplayscreen</name>
+    <events>
+        <event-block sid="9160523387965465">
+            <conditions>
+                <condition id="3" name="On touched object" sid="2969643176448592" type="Touch">
+                    <param id="0" name="Object">back</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="3" name="Start" sid="1960936172128323" type="back">
+                    <param id="0" name="From">1</param>
+                </action>
+                <action id="-16" name="Wait" sid="2593457954878736" type="System">
+                    <param id="0" name="Seconds">0.1</param>
+                </action>
+                <action id="-2" name="Go to layout" sid="2541619396342891" type="System">
+                    <param id="0" name="Layout">setting</param>
+                </action>
+            </actions>
+        </event-block>
+    </events>
+</c2eventsheet>
