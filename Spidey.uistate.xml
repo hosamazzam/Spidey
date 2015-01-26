@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<c2uistate>
+    <!--This is a UI state file - its content describes the user interface settings when the project was last open.
+It is entirely optional and the project will load without it.  If you are placing the project under source control,
+you probably do not want to add any .uistate.xml files to the repository.-->
+    <configurations>
+        <active>
+            <configuration name="HTML5" />
+        </active>
+        <display name="HTML5" />
+    </configurations>
+    <open-tabs>
+        <layout>main</layout>
+        <layout>playing</layout>
+        <layout>setting</layout>
+        <layout>howtoplay</layout>
+        <layout>End</layout>
+        <layout>mainload</layout>
+        <layout>playload</layout>
+        <layout>credit</layout>
+        <event-sheet>mainscreen</event-sheet>
+        <event-sheet active="1">playingscreen</event-sheet>
+        <event-sheet>howtoplayscreen</event-sheet>
+        <event-sheet>settingscreen</event-sheet>
+        <event-sheet>endscreen</event-sheet>
+        <event-sheet>mainloadscreen</event-sheet>
+        <event-sheet>playloadscreen</event-sheet>
+        <event-sheet>creditscreen</event-sheet>
+    </open-tabs>
+    <properties>
+        <property expanded="1" name="About" />
+        <property expanded="1" name="Project settings" />
+        <property expanded="1" name="Window Size" />
+        <property expanded="1" name="Configuration Settings" />
+    </properties>
+    <families-expanded root="1" />
+</c2uistate>

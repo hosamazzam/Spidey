@@ -1,0 +1,79 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<c2eventsheet>
+    <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
+    <name>endscreen</name>
+    <events>
+        <event-block sid="2102721354007915">
+            <conditions>
+                <condition id="3" name="On touched object" sid="159417584087914" type="Touch">
+                    <param id="0" name="Object">Home</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="3" name="Start" sid="7083171968389394" type="Home">
+                    <param id="0" name="From">1</param>
+                </action>
+                <action id="-16" name="Wait" sid="7360349359784079" type="System">
+                    <param id="0" name="Seconds">0.1</param>
+                </action>
+                <action id="-2" name="Go to layout" sid="1990287465408573" type="System">
+                    <param id="0" name="Layout">mainload</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="9619752205600039">
+            <conditions>
+                <condition id="3" name="On touched object" sid="8981611339804716" type="Touch">
+                    <param id="0" name="Object">Replay_bu</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="3" name="Start" sid="9899057973329793" type="Replay_bu">
+                    <param id="0" name="From">1</param>
+                </action>
+                <action id="-16" name="Wait" sid="6234357130215481" type="System">
+                    <param id="0" name="Seconds">0.1</param>
+                </action>
+                <action id="-9" name="Set value" sid="1643292441453017" type="System">
+                    <param id="0" name="Variable">dead</param>
+                    <param id="1" name="Value">5</param>
+                </action>
+                <action id="-9" name="Set value" sid="7487033106623954" type="System">
+                    <param id="0" name="Variable">Timecheck</param>
+                    <param id="1" name="Value">0</param>
+                </action>
+                <action id="-9" name="Set value" sid="1030933483020379" type="System">
+                    <param id="0" name="Variable">score</param>
+                    <param id="1" name="Value">0</param>
+                </action>
+                <action id="-2" name="Go to layout" sid="1546145638998073" type="System">
+                    <param id="0" name="Layout">playing</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="1523253542576016">
+            <conditions>
+                <condition id="-1" name="Every tick" sid="8847137120909244" type="System" />
+            </conditions>
+            <actions>
+                <action id="0" name="Set text" sid="7610040866843089" type="scorevalue">
+                    <param id="0" name="Text">&quot;&quot;&amp;score</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="6268691961589179">
+            <conditions>
+                <condition id="-2" name="On start of layout" sid="7722186083821237" type="System" />
+            </conditions>
+            <actions>
+                <action id="33" name="Stop all" sid="5924982305166731" type="Audio" />
+                <action id="0" name="Play" sid="8996973623743826" type="Audio">
+                    <param id="0" name="Audio file">main</param>
+                    <param id="2" name="Loop">1</param>
+                    <param id="3" name="Volume">0</param>
+                    <param id="1" name="Tag (optional)">&quot;&quot;</param>
+                </action>
+            </actions>
+        </event-block>
+    </events>
+</c2eventsheet>

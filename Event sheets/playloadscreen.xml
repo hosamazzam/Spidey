@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<c2eventsheet>
+    <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
+    <name>playloadscreen</name>
+    <events>
+        <event-block sid="8927250712678459">
+            <conditions>
+                <condition id="-14" name="Compare variable" sid="5444356671409151" type="System">
+                    <param id="0" name="Variable">sound</param>
+                    <param id="1" name="Comparison">0</param>
+                    <param id="2" name="Value">1</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="0" name="Play" sid="2740402310492989" type="Audio">
+                    <param id="0" name="Audio file">play</param>
+                    <param id="2" name="Loop">0</param>
+                    <param id="3" name="Volume">0</param>
+                    <param id="1" name="Tag (optional)">&quot;playsound&quot;</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="2715045499408971">
+            <conditions>
+                <condition id="5" name="Is tag playing" sid="1348757224487111" type="Audio">
+                    <param id="0" name="Tag">&quot;playsound&quot;</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="33" name="Stop all" sid="5485657998413035" type="Audio" />
+                <action id="-2" name="Go to layout" sid="4842293130223106" type="System">
+                    <param id="0" name="Layout">playing</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="6370131754562312">
+            <conditions>
+                <condition id="-2" name="On start of layout" sid="9475007751374393" type="System" />
+            </conditions>
+            <actions>
+                <action id="3" name="Start" sid="747619325281206" type="LOADING">
+                    <param id="0" name="From">1</param>
+                </action>
+            </actions>
+        </event-block>
+    </events>
+</c2eventsheet>

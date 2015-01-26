@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<c2eventsheet>
+    <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
+    <name>mainloadscreen</name>
+    <events>
+        <event-block sid="2462059196899137">
+            <conditions>
+                <condition id="-14" name="Compare variable" sid="7140236324007265" type="System">
+                    <param id="0" name="Variable">sound</param>
+                    <param id="1" name="Comparison">0</param>
+                    <param id="2" name="Value">1</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="0" name="Play" sid="4299294490331976" type="Audio">
+                    <param id="0" name="Audio file">main</param>
+                    <param id="2" name="Loop">0</param>
+                    <param id="3" name="Volume">0</param>
+                    <param id="1" name="Tag (optional)">&quot;&quot;</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="5894935153495771">
+            <conditions>
+                <condition id="4" name="Is any playing" sid="3270618820019668" type="Audio" />
+            </conditions>
+            <actions>
+                <action id="33" name="Stop all" sid="5359932511770711" type="Audio" />
+                <action id="-2" name="Go to layout" sid="6810153111757382" type="System">
+                    <param id="0" name="Layout">main</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="8382069931732758">
+            <conditions>
+                <condition id="-2" name="On start of layout" sid="8454928551885649" type="System" />
+            </conditions>
+            <actions>
+                <action id="3" name="Start" sid="7801570869985799" type="LOADING">
+                    <param id="0" name="From">1</param>
+                </action>
+            </actions>
+        </event-block>
+    </events>
+</c2eventsheet>

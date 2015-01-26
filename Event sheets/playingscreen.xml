@@ -3,35 +3,12 @@
     <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
     <name>playingscreen</name>
     <events>
-        <variable constant="0" name="escpressed" sid="7048054371472737" static="0" type="number">0</variable>
-        <event-block sid="5756979990363336">
-            <conditions>
-                <condition id="2" name="Key is down" sid="2631671123880876" type="Keyboard">
-                    <param id="0" name="Key">27 (Esc)</param>
-                </condition>
-            </conditions>
-            <actions />
-            <sub-events>
-                <event-block sid="392857474737278">
-                    <conditions>
-                        <condition id="-14" name="Compare variable" sid="8218984948384731" type="System">
-                            <param id="0" name="Variable">escpressed</param>
-                            <param id="1" name="Comparison">0</param>
-                            <param id="2" name="Value">0</param>
-                        </condition>
-                    </conditions>
-                    <actions>
-                        <action id="-9" name="Set value" sid="560525177093209" type="System">
-                            <param id="0" name="Variable">escpressed</param>
-                            <param id="1" name="Value">1</param>
-                        </action>
-                        <action id="-15" name="Set visible" sid="5270727233820436" type="Quit">
-                            <param id="0" name="Visibility">1</param>
-                        </action>
-                    </actions>
-                </event-block>
-            </sub-events>
-        </event-block>
+        <variable constant="0" name="temp" sid="3497172611548912" static="0" type="number">0</variable>
+        <variable constant="0" name="dead" sid="7870709114163528" static="0" type="number">5</variable>
+        <variable constant="0" name="randwait" sid="1938891028150806" static="0" type="number">0</variable>
+        <variable constant="0" name="Timecheck" sid="5391755766240482" static="0" type="number">0</variable>
+        <variable constant="0" name="score" sid="3360912585105071" static="0" type="number">0</variable>
+        <variable constant="0" name="speeddown" sid="9021217016191231" static="0" type="number">1</variable>
         <event-block sid="1976771124494635">
             <conditions>
                 <condition id="3" name="On touched object" sid="8810407639657327" type="Touch">
@@ -46,6 +23,434 @@
                     <param id="0" name="Seconds">0.1</param>
                 </action>
                 <action id="1" name="Close" sid="901065042209217" type="Browser" />
+            </actions>
+        </event-block>
+        <event-block sid="1695898402611673">
+            <conditions>
+                <condition id="-9" name="Layer is visible" sid="4401615160792861" type="System">
+                    <param id="0" name="Layer">0</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-3" name="Set position" sid="9010308940467387" type="girlSpider">
+                    <param id="0" name="X">girlSpider.X </param>
+                    <param id="1" name="Y">girlSpider.Y  + speeddown</param>
+                </action>
+                <action id="-3" name="Set position" sid="6584447790499658" type="smallspider2">
+                    <param id="0" name="X">smallspider2.X </param>
+                    <param id="1" name="Y">smallspider2.Y  + speeddown</param>
+                </action>
+                <action id="-3" name="Set position" sid="6842286796053605" type="smallspider">
+                    <param id="0" name="X">smallspider.X </param>
+                    <param id="1" name="Y">smallspider.Y  + speeddown</param>
+                </action>
+                <action id="-9" name="Set value" sid="2985672688587724" type="System">
+                    <param id="0" name="Variable">Timecheck</param>
+                    <param id="1" name="Value">Timecheck+1</param>
+                </action>
+                <action id="0" name="Set text" sid="9327752856697898" type="playscore">
+                    <param id="0" name="Text">&quot;&quot;&amp;score</param>
+                </action>
+            </actions>
+            <sub-events>
+                <event-block sid="476801996986832">
+                    <conditions>
+                        <condition id="-14" name="Compare variable" sid="1544486621854742" type="System">
+                            <param id="0" name="Variable">Timecheck</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">90</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-3" name="Create object" sid="9736935225883935" type="System">
+                            <param id="0" name="Object to create">girlSpider</param>
+                            <param id="1" name="Layer">0</param>
+                            <param id="2" name="X">random(510) + 20</param>
+                            <param id="3" name="Y">-50</param>
+                        </action>
+                        <action id="-9" name="Set value" sid="4611776419821876" type="System">
+                            <param id="0" name="Variable">randwait</param>
+                            <param id="1" name="Value">random(10)/10</param>
+                        </action>
+                        <action id="-16" name="Wait" sid="285099033481213" type="System">
+                            <param id="0" name="Seconds">randwait</param>
+                        </action>
+                        <action id="-9" name="Set value" sid="6724231579332189" type="System">
+                            <param id="0" name="Variable">randwait</param>
+                            <param id="1" name="Value">random(10)/10</param>
+                        </action>
+                        <action id="-3" name="Create object" sid="1342731719639328" type="System">
+                            <param id="0" name="Object to create">smallspider</param>
+                            <param id="1" name="Layer">0</param>
+                            <param id="2" name="X">random(510)+20</param>
+                            <param id="3" name="Y">-50</param>
+                        </action>
+                        <action id="-16" name="Wait" sid="2506121395680796" type="System">
+                            <param id="0" name="Seconds">randwait</param>
+                        </action>
+                        <action id="-3" name="Create object" sid="807011920855533" type="System">
+                            <param id="0" name="Object to create">smallspider2</param>
+                            <param id="1" name="Layer">0</param>
+                            <param id="2" name="X">random(510)+20</param>
+                            <param id="3" name="Y">-50</param>
+                        </action>
+                        <action id="-9" name="Set value" sid="4126271411211249" type="System">
+                            <param id="0" name="Variable">Timecheck</param>
+                            <param id="1" name="Value">0</param>
+                        </action>
+                        <action id="-10" name="Add to" sid="1940890833158135" type="System">
+                            <param id="0" name="Variable">speeddown</param>
+                            <param id="1" name="Value">0.1</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="1701215743626853">
+                    <conditions>
+                        <condition id="-14" name="Compare variable" sid="1351948621825892" type="System">
+                            <param id="0" name="Variable">dead</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">0</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-9" name="Set value" sid="2844630814442752" type="System">
+                            <param id="0" name="Variable">dead</param>
+                            <param id="1" name="Value">0</param>
+                        </action>
+                        <action id="-2" name="Go to layout" sid="6115039198423334" type="System">
+                            <param id="0" name="Layout">End</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="9818274486462153">
+                    <conditions>
+                        <condition id="0" name="On collision with another object" sid="20035615958047" type="smallspider2">
+                            <param id="0" name="Object">wall</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-11" name="Subtract from" sid="4603212444858486" type="System">
+                            <param id="0" name="Variable">dead</param>
+                            <param id="1" name="Value">1</param>
+                        </action>
+                        <action id="-9" name="Destroy" sid="565281169878504" type="smallspider2" />
+                    </actions>
+                </event-block>
+                <event-block sid="3505902254859445">
+                    <conditions>
+                        <condition id="0" name="On collision with another object" sid="7439257118638132" type="smallspider">
+                            <param id="0" name="Object">wall</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-11" name="Subtract from" sid="2084659162871097" type="System">
+                            <param id="0" name="Variable">dead</param>
+                            <param id="1" name="Value">1</param>
+                        </action>
+                        <action id="-9" name="Destroy" sid="3484635992110596" type="smallspider" />
+                    </actions>
+                </event-block>
+                <event-block sid="5115109524374901">
+                    <conditions>
+                        <condition id="0" name="On collision with another object" sid="1842386020148631" type="girlSpider">
+                            <param id="0" name="Object">wall</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-11" name="Subtract from" sid="6789325812384405" type="System">
+                            <param id="0" name="Variable">dead</param>
+                            <param id="1" name="Value">1</param>
+                        </action>
+                        <action id="-9" name="Destroy" sid="8981234450761158" type="girlSpider" />
+                    </actions>
+                </event-block>
+                <event-block sid="5644563919570677">
+                    <conditions>
+                        <condition id="3" name="On touched object" sid="1702103956814181" type="Touch">
+                            <param id="0" name="Object">smallspider</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-10" name="Add to" sid="3641883133735664" type="System">
+                            <param id="0" name="Variable">score</param>
+                            <param id="1" name="Value">10</param>
+                        </action>
+                        <action id="-3" name="Set position" sid="6978130368316812" type="smallspider">
+                            <param id="0" name="X">smallspider.X </param>
+                            <param id="1" name="Y">smallspider.Y </param>
+                        </action>
+                        <action id="-3" name="Create object" sid="4357512816366262" type="System">
+                            <param id="0" name="Object to create">SpiderWeb</param>
+                            <param id="1" name="Layer">0</param>
+                            <param id="2" name="X">smallspider.X</param>
+                            <param id="3" name="Y">smallspider.Y</param>
+                        </action>
+                        <action id="-16" name="Wait" sid="601944823597965" type="System">
+                            <param id="0" name="Seconds">0.1</param>
+                        </action>
+                        <action id="-9" name="Destroy" sid="185125383918975" type="smallspider" />
+                        <action id="-16" name="Wait" sid="3026825145410552" type="System">
+                            <param id="0" name="Seconds">0.1</param>
+                        </action>
+                        <action id="-9" name="Destroy" sid="1048738498817692" type="SpiderWeb" />
+                    </actions>
+                </event-block>
+                <event-block sid="3140205607032048">
+                    <conditions>
+                        <condition id="3" name="On touched object" sid="1052659606823266" type="Touch">
+                            <param id="0" name="Object">girlSpider</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-10" name="Add to" sid="8004616068225941" type="System">
+                            <param id="0" name="Variable">score</param>
+                            <param id="1" name="Value">10</param>
+                        </action>
+                        <action id="-3" name="Set position" sid="6755683371013733" type="girlSpider">
+                            <param id="0" name="X">girlSpider.X </param>
+                            <param id="1" name="Y">girlSpider.Y </param>
+                        </action>
+                        <action id="-3" name="Create object" sid="4466358383136031" type="System">
+                            <param id="0" name="Object to create">SpiderWeb</param>
+                            <param id="1" name="Layer">0</param>
+                            <param id="2" name="X">girlSpider.X </param>
+                            <param id="3" name="Y">girlSpider.Y</param>
+                        </action>
+                        <action id="-16" name="Wait" sid="4847931554205331" type="System">
+                            <param id="0" name="Seconds">0.1</param>
+                        </action>
+                        <action id="-9" name="Destroy" sid="2630480037084981" type="girlSpider" />
+                        <action id="-16" name="Wait" sid="953055853810188" type="System">
+                            <param id="0" name="Seconds">0.1</param>
+                        </action>
+                        <action id="-9" name="Destroy" sid="4782570470276543" type="SpiderWeb" />
+                    </actions>
+                </event-block>
+                <event-block sid="2059819500296342">
+                    <conditions>
+                        <condition id="3" name="On touched object" sid="2401821814729741" type="Touch">
+                            <param id="0" name="Object">smallspider2</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-10" name="Add to" sid="1119503728641113" type="System">
+                            <param id="0" name="Variable">score</param>
+                            <param id="1" name="Value">10</param>
+                        </action>
+                        <action id="-3" name="Set position" sid="7908897882252853" type="smallspider2">
+                            <param id="0" name="X">smallspider2.X </param>
+                            <param id="1" name="Y">smallspider2.Y </param>
+                        </action>
+                        <action id="-3" name="Create object" sid="9711240484273222" type="System">
+                            <param id="0" name="Object to create">SpiderWeb</param>
+                            <param id="1" name="Layer">0</param>
+                            <param id="2" name="X">smallspider2.X</param>
+                            <param id="3" name="Y">smallspider2.Y</param>
+                        </action>
+                        <action id="-16" name="Wait" sid="1868500600030476" type="System">
+                            <param id="0" name="Seconds">0.1</param>
+                        </action>
+                        <action id="-9" name="Destroy" sid="8142763977477677" type="smallspider2" />
+                        <action id="-16" name="Wait" sid="4229106482988758" type="System">
+                            <param id="0" name="Seconds">0.1</param>
+                        </action>
+                        <action id="-9" name="Destroy" sid="10486457640346" type="SpiderWeb" />
+                    </actions>
+                </event-block>
+                <event-block sid="2243962716613977">
+                    <conditions>
+                        <condition id="-14" name="Compare variable" sid="3668039285726862" type="System">
+                            <param id="0" name="Variable">dead</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">1</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-9" name="Destroy" sid="6880229329268528" type="herat4" />
+                    </actions>
+                </event-block>
+                <event-block sid="711298735732888">
+                    <conditions>
+                        <condition id="-14" name="Compare variable" sid="9555825251842205" type="System">
+                            <param id="0" name="Variable">dead</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">2</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-9" name="Destroy" sid="9210579156665755" type="herat2" />
+                    </actions>
+                </event-block>
+                <event-block sid="136517975497439">
+                    <conditions>
+                        <condition id="-14" name="Compare variable" sid="3834750963946093" type="System">
+                            <param id="0" name="Variable">dead</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">3</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-9" name="Destroy" sid="5829024155002907" type="herat3" />
+                    </actions>
+                </event-block>
+                <event-block sid="7595318720943377">
+                    <conditions>
+                        <condition id="-14" name="Compare variable" sid="2012784948258076" type="System">
+                            <param id="0" name="Variable">dead</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">4</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-9" name="Destroy" sid="3050095572689372" type="herat4" />
+                    </actions>
+                </event-block>
+                <event-block sid="5106558140949721">
+                    <conditions>
+                        <condition id="3" name="On touched object" sid="3623634747721017" type="Touch">
+                            <param id="0" name="Object">pauseBu</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-3" name="Create object" sid="8830788278984917" type="System">
+                            <param id="0" name="Object to create">Resume</param>
+                            <param id="1" name="Layer">0</param>
+                            <param id="2" name="X">184.962</param>
+                            <param id="3" name="Y">566.34</param>
+                        </action>
+                        <action id="-3" name="Create object" sid="3344814908883371" type="System">
+                            <param id="0" name="Object to create">Replay_bu</param>
+                            <param id="1" name="Layer">0</param>
+                            <param id="2" name="X">363.639</param>
+                            <param id="3" name="Y">567.293</param>
+                        </action>
+                        <action id="-3" name="Create object" sid="3895906156130742" type="System">
+                            <param id="0" name="Object to create">Home</param>
+                            <param id="1" name="Layer">0</param>
+                            <param id="2" name="X">280.924</param>
+                            <param id="3" name="Y">644.069</param>
+                        </action>
+                        <action id="-13" name="Set time scale" sid="7716461659322488" type="System">
+                            <param id="0" name="Time scale">0</param>
+                        </action>
+                        <action id="-9" name="Set value" sid="3082843759903277" type="System">
+                            <param id="0" name="Variable">temp</param>
+                            <param id="1" name="Value">speeddown</param>
+                        </action>
+                        <action id="-9" name="Set value" sid="6475668000751351" type="System">
+                            <param id="0" name="Variable">speeddown</param>
+                            <param id="1" name="Value">0</param>
+                        </action>
+                        <action id="5" name="Set frame" sid="6298583262012827" type="INSIDE">
+                            <param id="0" name="Frame number">0</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="1287262400191027">
+                    <conditions>
+                        <condition id="3" name="On touched object" sid="2410107215024687" type="Touch">
+                            <param id="0" name="Object">Resume</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-9" name="Destroy" sid="9292847832873232" type="Replay_bu" />
+                        <action id="-9" name="Destroy" sid="7523477838607145" type="Resume" />
+                        <action id="-9" name="Destroy" sid="152743068262316" type="Home" />
+                        <action id="-13" name="Set time scale" sid="2857271025113447" type="System">
+                            <param id="0" name="Time scale">1.0</param>
+                        </action>
+                        <action id="-9" name="Set value" sid="7830424421337551" type="System">
+                            <param id="0" name="Variable">speeddown</param>
+                            <param id="1" name="Value">temp</param>
+                        </action>
+                        <action id="5" name="Set frame" sid="9713814156766029" type="INSIDE">
+                            <param id="0" name="Frame number">1</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="2122461931966013">
+                    <conditions>
+                        <condition id="3" name="On touched object" sid="1677502246985809" type="Touch">
+                            <param id="0" name="Object">Home</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-9" name="Destroy" sid="5276556637300336" type="Replay_bu" />
+                        <action id="-9" name="Destroy" sid="5424942561887672" type="Resume" />
+                        <action id="-9" name="Destroy" sid="4817476454949282" type="Home" />
+                        <action id="-13" name="Set time scale" sid="218918531802085" type="System">
+                            <param id="0" name="Time scale">1.0</param>
+                        </action>
+                        <action id="3" name="Start" sid="1378623273155512" type="Home">
+                            <param id="0" name="From">1</param>
+                        </action>
+                        <action id="-16" name="Wait" sid="5917308429907939" type="System">
+                            <param id="0" name="Seconds">0.1</param>
+                        </action>
+                        <action id="33" name="Stop all" sid="8288864152560741" type="Audio" />
+                        <action id="-9" name="Set value" sid="7141666839384946" type="System">
+                            <param id="0" name="Variable">speeddown</param>
+                            <param id="1" name="Value">temp</param>
+                        </action>
+                        <action id="-2" name="Go to layout" sid="4942096455758216" type="System">
+                            <param id="0" name="Layout">mainload</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="8481306861069455">
+                    <conditions>
+                        <condition id="3" name="On touched object" sid="7268021885636178" type="Touch">
+                            <param id="0" name="Object">Replay_bu</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-9" name="Destroy" sid="8202638264399085" type="Replay_bu" />
+                        <action id="-9" name="Destroy" sid="28837643254149" type="Resume" />
+                        <action id="-9" name="Destroy" sid="5348367437320387" type="Home" />
+                        <action id="-13" name="Set time scale" sid="5366020402182807" type="System">
+                            <param id="0" name="Time scale">1.0</param>
+                        </action>
+                        <action id="-9" name="Set value" sid="8528091697565992" type="System">
+                            <param id="0" name="Variable">speeddown</param>
+                            <param id="1" name="Value">temp</param>
+                        </action>
+                        <action id="3" name="Start" sid="8156204123987289" type="Replay_bu">
+                            <param id="0" name="From">1</param>
+                        </action>
+                        <action id="-16" name="Wait" sid="815190482869472" type="System">
+                            <param id="0" name="Seconds">0.1</param>
+                        </action>
+                        <action id="-9" name="Set value" sid="4306637144153338" type="System">
+                            <param id="0" name="Variable">dead</param>
+                            <param id="1" name="Value">5</param>
+                        </action>
+                        <action id="-9" name="Set value" sid="7596665187602487" type="System">
+                            <param id="0" name="Variable">Timecheck</param>
+                            <param id="1" name="Value">0</param>
+                        </action>
+                        <action id="-9" name="Set value" sid="8630480988730335" type="System">
+                            <param id="0" name="Variable">score</param>
+                            <param id="1" name="Value">0</param>
+                        </action>
+                        <action id="-2" name="Go to layout" sid="3800770431744653" type="System">
+                            <param id="0" name="Layout">playing</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-block>
+        <event-block sid="6987850851080129">
+            <conditions>
+                <condition id="-2" name="On start of layout" sid="4518655391050595" type="System" />
+            </conditions>
+            <actions>
+                <action id="33" name="Stop all" sid="1569652431965263" type="Audio" />
+                <action id="0" name="Play" sid="2487351273900583" type="Audio">
+                    <param id="0" name="Audio file">play</param>
+                    <param id="2" name="Loop">1</param>
+                    <param id="3" name="Volume">0</param>
+                    <param id="1" name="Tag (optional)">&quot;&quot;</param>
+                </action>
             </actions>
         </event-block>
     </events>

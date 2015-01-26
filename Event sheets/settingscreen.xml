@@ -3,12 +3,12 @@
     <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
     <name>settingscreen</name>
     <events>
-        <variable constant="0" name="effects" sid="8812007811353157" static="0" type="number">0</variable>
+        <variable constant="0" name="effects" sid="8812007811353157" static="0" type="number">1</variable>
         <variable comment="music sound" constant="0" name="sound" sid="4100840352977372" static="0" type="number">1</variable>
         <event-block sid="9443542584257434">
             <conditions>
                 <condition id="3" name="On touched object" sid="6861116100603514" type="Touch">
-                    <param id="0" name="Object">sound</param>
+                    <param id="0" name="Object">soundMute</param>
                 </condition>
             </conditions>
             <actions />
@@ -17,17 +17,24 @@
                     <conditions>
                         <condition id="-14" name="Compare variable" sid="6710638473839942" type="System">
                             <param id="0" name="Variable">sound</param>
-                            <param id="1" name="Comparison">2</param>
+                            <param id="1" name="Comparison">0</param>
                             <param id="2" name="Value">1</param>
                         </condition>
                     </conditions>
                     <actions>
-                        <action id="5" name="Set frame" sid="2038726326266161" type="sound">
-                            <param id="0" name="Frame number">1</param>
-                        </action>
                         <action id="-9" name="Set value" sid="512766986259553" type="System">
                             <param id="0" name="Variable">sound</param>
-                            <param id="1" name="Value">1</param>
+                            <param id="1" name="Value">0</param>
+                        </action>
+                        <action id="-9" name="Destroy" sid="7252241129039088" type="soundMute" />
+                        <action id="8" name="Set silent" sid="5296345805532971" type="Audio">
+                            <param id="0" name="Mode">0</param>
+                        </action>
+                        <action id="-3" name="Create object" sid="5149907967934926" type="System">
+                            <param id="0" name="Object to create">sound</param>
+                            <param id="1" name="Layer">0</param>
+                            <param id="2" name="X">336.318</param>
+                            <param id="3" name="Y">210.217</param>
                         </action>
                     </actions>
                 </event-block>
@@ -45,21 +52,250 @@
                     <conditions>
                         <condition id="-14" name="Compare variable" sid="8755630532386766" type="System">
                             <param id="0" name="Variable">sound</param>
-                            <param id="1" name="Comparison">4</param>
+                            <param id="1" name="Comparison">0</param>
                             <param id="2" name="Value">0</param>
                         </condition>
                     </conditions>
                     <actions>
-                        <action id="5" name="Set frame" sid="9688169596381998" type="sound">
-                            <param id="0" name="Frame number">0</param>
-                        </action>
                         <action id="-9" name="Set value" sid="5197512051600956" type="System">
                             <param id="0" name="Variable">sound</param>
-                            <param id="1" name="Value">0</param>
+                            <param id="1" name="Value">1</param>
+                        </action>
+                        <action id="-9" name="Destroy" sid="5103653257224406" type="sound" />
+                        <action id="8" name="Set silent" sid="8303170167211578" type="Audio">
+                            <param id="0" name="Mode">1</param>
+                        </action>
+                        <action id="-3" name="Create object" sid="8096336830816575" type="System">
+                            <param id="0" name="Object to create">soundMute</param>
+                            <param id="1" name="Layer">0</param>
+                            <param id="2" name="X">414.407</param>
+                            <param id="3" name="Y">212.797</param>
                         </action>
                     </actions>
                 </event-block>
             </sub-events>
+        </event-block>
+        <event-block sid="1363367057038057">
+            <conditions>
+                <condition id="3" name="On touched object" sid="2457203964209857" type="Touch">
+                    <param id="0" name="Object">back</param>
+                </condition>
+            </conditions>
+            <actions />
+            <sub-events>
+                <event-block sid="1642316750104509">
+                    <conditions>
+                        <condition id="-14" name="Compare variable" sid="3700792600372862" type="System">
+                            <param id="0" name="Variable">sound</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">1</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="8" name="Set silent" sid="3485208775005118" type="Audio">
+                            <param id="0" name="Mode">0</param>
+                        </action>
+                        <action id="-2" name="Go to layout" sid="43767084950372" type="System">
+                            <param id="0" name="Layout">main</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="5332423094906663">
+                    <conditions>
+                        <condition id="-14" name="Compare variable" sid="6885734511388888" type="System">
+                            <param id="0" name="Variable">sound</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">0</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-2" name="Go to layout" sid="473057621830386" type="System">
+                            <param id="0" name="Layout">main</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-block>
+        <event-block sid="7163956364561067">
+            <conditions>
+                <condition id="3" name="On touched object" sid="3515638080947178" type="Touch">
+                    <param id="0" name="Object">HowToPlay</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-2" name="Go to layout" sid="5023276335390306" type="System">
+                    <param id="0" name="Layout">howtoplay</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="8399881926610666">
+            <conditions>
+                <condition id="-14" name="Compare variable" sid="9611390703028395" type="System">
+                    <param id="0" name="Variable">sound</param>
+                    <param id="1" name="Comparison">0</param>
+                    <param id="2" name="Value">1</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-3" name="Create object" sid="8248213853639756" type="System">
+                    <param id="0" name="Object to create">sound</param>
+                    <param id="1" name="Layer">0</param>
+                    <param id="2" name="X">336.318</param>
+                    <param id="3" name="Y">210.217</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block collapsed="1" sid="4553703595065329">
+            <conditions>
+                <condition id="-9" name="Layer is visible" sid="684141642314697" type="System">
+                    <param id="0" name="Layer">0</param>
+                </condition>
+            </conditions>
+            <actions />
+            <sub-events>
+                <event-block sid="538395581965778">
+                    <conditions>
+                        <condition id="-14" name="Compare variable" sid="585000094221216" type="System">
+                            <param id="0" name="Variable">sound</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">1</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-9" name="Destroy" sid="4371279231173429" type="sound" />
+                    </actions>
+                </event-block>
+                <event-block sid="3738635619716542">
+                    <conditions>
+                        <condition id="-14" name="Compare variable" sid="8734139456325242" type="System">
+                            <param id="0" name="Variable">sound</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">0</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-3" name="Create object" sid="8107282357913482" type="System">
+                            <param id="0" name="Object to create">sound</param>
+                            <param id="1" name="Layer">0</param>
+                            <param id="2" name="X">336.318</param>
+                            <param id="3" name="Y">210.217</param>
+                        </action>
+                        <action id="-9" name="Destroy" sid="3837150260408014" type="soundMute" />
+                    </actions>
+                </event-block>
+                <event-block sid="3437278496274294">
+                    <conditions>
+                        <condition id="-14" name="Compare variable" sid="1020617147044122" type="System">
+                            <param id="0" name="Variable">effects</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">1</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-9" name="Destroy" sid="9796517950553089" type="music" />
+                    </actions>
+                </event-block>
+                <event-block sid="6188929459465984">
+                    <conditions>
+                        <condition id="-14" name="Compare variable" sid="2134355614800936" type="System">
+                            <param id="0" name="Variable">effects</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">0</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-3" name="Create object" sid="6090576594521679" type="System">
+                            <param id="0" name="Object to create">music</param>
+                            <param id="1" name="Layer">0</param>
+                            <param id="2" name="X">337.643</param>
+                            <param id="3" name="Y">286.199</param>
+                        </action>
+                        <action id="-9" name="Destroy" sid="392908271349462" type="musicmute" />
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-block>
+        <event-block sid="3061196751529397">
+            <conditions>
+                <condition id="3" name="On touched object" sid="9520100119016976" type="Touch">
+                    <param id="0" name="Object">music</param>
+                </condition>
+            </conditions>
+            <actions />
+            <sub-events>
+                <event-block sid="4317288641681474">
+                    <conditions>
+                        <condition id="-14" name="Compare variable" sid="2164257563073397" type="System">
+                            <param id="0" name="Variable">effects</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">0</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-9" name="Set value" sid="5086256963932931" type="System">
+                            <param id="0" name="Variable">effects</param>
+                            <param id="1" name="Value">1</param>
+                        </action>
+                        <action id="-9" name="Destroy" sid="3706893165434413" type="music" />
+                        <action id="-3" name="Create object" sid="6183254543508211" type="System">
+                            <param id="0" name="Object to create">musicmute</param>
+                            <param id="1" name="Layer">0</param>
+                            <param id="2" name="X">416.128</param>
+                            <param id="3" name="Y">285.681</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-block>
+        <event-block sid="3486206783519334">
+            <conditions>
+                <condition id="3" name="On touched object" sid="3754684293672534" type="Touch">
+                    <param id="0" name="Object">musicmute</param>
+                </condition>
+            </conditions>
+            <actions />
+            <sub-events>
+                <event-block sid="7533954249740213">
+                    <conditions>
+                        <condition id="-14" name="Compare variable" sid="2594067733528947" type="System">
+                            <param id="0" name="Variable">effects</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">1</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-9" name="Set value" sid="2887873889076229" type="System">
+                            <param id="0" name="Variable">effects</param>
+                            <param id="1" name="Value">0</param>
+                        </action>
+                        <action id="-9" name="Destroy" sid="6723325022129699" type="musicmute" />
+                        <action id="-3" name="Create object" sid="4884040147256791" type="System">
+                            <param id="0" name="Object to create">music</param>
+                            <param id="1" name="Layer">0</param>
+                            <param id="2" name="X">337.643</param>
+                            <param id="3" name="Y">286.199</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-block>
+        <event-block sid="9348081461079493">
+            <conditions>
+                <condition id="3" name="On touched object" sid="4505607502389487" type="Touch">
+                    <param id="0" name="Object">Credit</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="3" name="Start" sid="7562582449086165" type="Credit">
+                    <param id="0" name="From">1</param>
+                </action>
+                <action id="-16" name="Wait" sid="3325965680490115" type="System">
+                    <param id="0" name="Seconds">0.1</param>
+                </action>
+                <action id="-2" name="Go to layout" sid="3895312106679041" type="System">
+                    <param id="0" name="Layout">credit</param>
+                </action>
+            </actions>
         </event-block>
     </events>
 </c2eventsheet>

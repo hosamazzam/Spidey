@@ -27,7 +27,7 @@
             <blend-mode>0</blend-mode>
             <effect-fallback>0</effect-fallback>
             <instances>
-                <instance type="HowToPlayBg" uid="15">
+                <instance type="HowToPLayBGGG" uid="8">
                     <properties>
                         <initial-visibility>Visible</initial-visibility>
                         <initial-animation>Default</initial-animation>
@@ -37,11 +37,11 @@
                     <blend-mode>0</blend-mode>
                     <effect-fallback>0</effect-fallback>
                     <world>
-                        <x>279.090698242</x>
-                        <y>352.113372803</y>
+                        <x>279.417724609</x>
+                        <y>346.897644043</y>
                         <z>0</z>
-                        <width>561.996459961</width>
-                        <height>702.495544434</height>
+                        <width>566</width>
+                        <height>711</height>
                         <depth>0</depth>
                         <hotspotX>0.5</hotspotX>
                         <hotspotY>0.5</hotspotY>
@@ -59,8 +59,8 @@
                     <blend-mode>0</blend-mode>
                     <effect-fallback>0</effect-fallback>
                     <world>
-                        <x>114</x>
-                        <y>624</y>
+                        <x>269</x>
+                        <y>647</y>
                         <z>0</z>
                         <width>181</width>
                         <height>75</height>

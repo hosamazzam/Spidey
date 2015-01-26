@@ -3,6 +3,34 @@
     <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
     <name>mainscreen</name>
     <events>
+        <event-block sid="4993595560982457">
+            <conditions>
+                <condition id="-2" name="On start of layout" sid="2757721770451959" type="System" />
+            </conditions>
+            <actions />
+            <sub-events>
+                <event-block sid="1568230811913639">
+                    <conditions>
+                        <condition id="-14" name="Compare variable" sid="9734576482245059" type="System">
+                            <param id="0" name="Variable">sound</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">1</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="0" name="Play" sid="1591521307542631" type="Audio">
+                            <param id="0" name="Audio file">main</param>
+                            <param id="2" name="Loop">1</param>
+                            <param id="3" name="Volume">0</param>
+                            <param id="1" name="Tag (optional)">&quot;&quot;</param>
+                        </action>
+                        <action id="8" name="Set silent" sid="2553133765127924" type="Audio">
+                            <param id="0" name="Mode">1</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-block>
         <event-block sid="5308342488089274">
             <conditions>
                 <condition id="3" name="On touched object" sid="6278725278097521" type="Touch">
@@ -16,8 +44,21 @@
                 <action id="-16" name="Wait" sid="6866061702631595" type="System">
                     <param id="0" name="Seconds">0.1</param>
                 </action>
+                <action id="33" name="Stop all" sid="6555088936040297" type="Audio" />
                 <action id="-2" name="Go to layout" sid="4870297209119676" type="System">
-                    <param id="0" name="Layout">playing</param>
+                    <param id="0" name="Layout">playload</param>
+                </action>
+                <action id="-9" name="Set value" sid="2783859326452832" type="System">
+                    <param id="0" name="Variable">dead</param>
+                    <param id="1" name="Value">5</param>
+                </action>
+                <action id="-9" name="Set value" sid="9772269936455947" type="System">
+                    <param id="0" name="Variable">Timecheck</param>
+                    <param id="1" name="Value">0</param>
+                </action>
+                <action id="-9" name="Set value" sid="4070811116967714" type="System">
+                    <param id="0" name="Variable">score</param>
+                    <param id="1" name="Value">0</param>
                 </action>
             </actions>
         </event-block>
@@ -46,25 +87,72 @@
                 </condition>
             </conditions>
             <actions>
-                <action id="3" name="Start" sid="6983816877231879" type="Quit">
-                    <param id="0" name="From">1</param>
+                <action id="-3" name="Create object" sid="8448328306049768" type="System">
+                    <param id="0" name="Object to create">DOUWantToQuit</param>
+                    <param id="1" name="Layer">0</param>
+                    <param id="2" name="X">285</param>
+                    <param id="3" name="Y">419</param>
                 </action>
-                <action id="-16" name="Wait" sid="1902397462507478" type="System">
-                    <param id="0" name="Seconds">0.1</param>
+                <action id="-3" name="Create object" sid="2223368874426395" type="System">
+                    <param id="0" name="Object to create">Yes</param>
+                    <param id="1" name="Layer">0</param>
+                    <param id="2" name="X">146</param>
+                    <param id="3" name="Y">496</param>
                 </action>
-                <action id="1" name="Close" sid="1114972251384907" type="Browser" />
+                <action id="-3" name="Create object" sid="9347886604925155" type="System">
+                    <param id="0" name="Object to create">NO</param>
+                    <param id="1" name="Layer">0</param>
+                    <param id="2" name="X">421</param>
+                    <param id="3" name="Y">493</param>
+                </action>
+                <action id="-9" name="Destroy" sid="6212662843081437" type="Setting" />
+                <action id="-9" name="Destroy" sid="8287724230775161" type="Play_button" />
+                <action id="-9" name="Destroy" sid="6132298384470699" type="Quit" />
             </actions>
         </event-block>
-        <event-block sid="2013840472578117">
+        <event-block sid="9738474101039593">
             <conditions>
-                <condition id="-2" name="On start of layout" sid="2757721770451959" type="System" />
+                <condition id="3" name="On touched object" sid="5265557885161683" type="Touch">
+                    <param id="0" name="Object">Yes</param>
+                </condition>
             </conditions>
             <actions>
-                <action id="0" name="Play" sid="7394695150367242" type="Audio">
-                    <param id="0" name="Audio file">main</param>
-                    <param id="2" name="Loop">1</param>
-                    <param id="3" name="Volume">0</param>
-                    <param id="1" name="Tag (optional)">&quot;&quot;</param>
+                <action id="3" name="Start" sid="5013435335848021" type="Yes">
+                    <param id="0" name="From">1</param>
+                </action>
+                <action id="-16" name="Wait" sid="5978085411359559" type="System">
+                    <param id="0" name="Seconds">0.1</param>
+                </action>
+                <action id="1" name="Close" sid="9081236103484545" type="Browser" />
+            </actions>
+        </event-block>
+        <event-block sid="4143523524105609">
+            <conditions>
+                <condition id="3" name="On touched object" sid="7573708265944336" type="Touch">
+                    <param id="0" name="Object">NO</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-9" name="Destroy" sid="1213062284398492" type="Yes" />
+                <action id="-9" name="Destroy" sid="1411593318670303" type="NO" />
+                <action id="-9" name="Destroy" sid="9005577440028706" type="DOUWantToQuit" />
+                <action id="-3" name="Create object" sid="667380849622948" type="System">
+                    <param id="0" name="Object to create">Play_button</param>
+                    <param id="1" name="Layer">0</param>
+                    <param id="2" name="X">282</param>
+                    <param id="3" name="Y">377</param>
+                </action>
+                <action id="-3" name="Create object" sid="7165795962964368" type="System">
+                    <param id="0" name="Object to create">Setting</param>
+                    <param id="1" name="Layer">0</param>
+                    <param id="2" name="X">282.981</param>
+                    <param id="3" name="Y">485.207</param>
+                </action>
+                <action id="-3" name="Create object" sid="4810151751027592" type="System">
+                    <param id="0" name="Object to create">Quit</param>
+                    <param id="1" name="Layer">0</param>
+                    <param id="2" name="X">282.531</param>
+                    <param id="3" name="Y">586.543</param>
                 </action>
             </actions>
         </event-block>
